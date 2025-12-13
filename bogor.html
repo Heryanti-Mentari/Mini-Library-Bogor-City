@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart City Bogor</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Popup Modal CSS -->
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        overflow-y: auto;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal[style*='display: block'] {
+        opacity: 1;
+      }
+
+      .modal-content {
+        background: #fff;
+        margin: 5% auto;
+        padding: 20px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 600px;
+        animation: fadeIn 0.25s ease-in-out;
+        text-align: center;
+      }
+
+      .modal-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      }
+
+      .modal-image img {
+        display: block;
+        margin: 0 auto;   /* memastikan gambar tepat di tengah */
+        max-width: 100%;
+        height: auto;
+        max-height: 260px;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+      
+      .modal-source {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 12px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: 600;
+      }
+
+      .close {
+        float: right;
+        font-size: 24px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .close:hover {
+        color: red;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .modal-content {
+          width: 95%;
+          margin: 18% auto;
+        }
+
+        .modal-image img {
+          max-height: 180px;
+        }
+      }
+      .article-section {
+  padding: 60px 20px;
+  background: #fafafa;
+  font-family: 'Georgia', serif;
+}
+
+.article-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.article-title {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.article-image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.article-image img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.article-image figcaption {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+  font-style: italic;
+}
+
+.article-content p {
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: #333;
+}
+.article-section {
+  padding: 60px 20px;
+  background: #fafafa;
+  font-family: 'Georgia', serif;
+}
+
+.article-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.article-title {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.article-content p {
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: #333;
+}
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="header" data-header>
+      <div class="overlay" data-overlay></div>
+
+      <div class="header-bottom">
+        <div class="container">
+          <a href="index.html" class="logo">
+            <img src="./assets/images/cityp.png" alt="Smart City Logo" />
+          </a>
+
+          <nav class="navbar" data-navbar>
+            <div class="navbar-top">
+              <a href="index.html" class="logo">
+                <img src="./assets/images/cityp.png" alt="Smart City Logo" />
+              </a>
+              <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <div class="navbar-bottom">
+              <ul class="navbar-list">
+                <li><a href="index.html" class="navbar-link" data-nav-link>Home</a></li>
+                <li><a href="bogor.html" class="navbar-link active" data-nav-link>Smart City Bogor</a></li>
+                <li><a href="profile.html" class="navbar-link" data-nav-link>Profile</a></li>
+                <li><a href="quiz.html" class="navbar-link" data-nav-link>Quiz</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="header-bottom-actions">
+            <button class="header-bottom-actions-btn" aria-label="Search">
+              <ion-icon name="search-outline"></ion-icon>
+              <span>Search</span>
+            </button>
+
+            <button class="header-bottom-actions-btn" aria-label="Profile">
+              <ion-icon name="person-outline"></ion-icon>
+              <span>Profile</span>
+            </button>
+
+            <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+              <ion-icon name="menu-outline"></ion-icon>
+              <span>Menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <article>
+        <!-- HERO -->
+        <section class="hero" id="home">
+          <div class="container">
+            <div class="hero-content">
+              <h2 class="h1 hero-title">Smart City Bogor</h2>
+              <p class="hero-text">
+                Bogor City embraces the Smart City concept to enhance public services, improve governance efficiency, and promote sustainable development. Through technology integration, Bogor aims to create a connected, innovative, and
+                eco-friendly urban ecosystem.
+              </p>
+              <p>
+              <a class="source-link" href=""
+                target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-link"></i> Source
+              </a>
+            </p>
+            </div>
+            <figure class="hero-banner">
+              <img src="./assets/images/kota_bogor.png" alt="Smart City Bogor" class="w-100" />
+            </figure>
+          </div>
+        </section>
+
+        <!-- PROFILE -->
+       <section class="article-section">
+  <div class="article-container">
+
+    <h2 class="article-title">Profile of Bogor City</h2>
+    <div class="article-content">
+      <p>
+        Located just south of Jakarta, Bogor City is renowned for its lush greenery,
+        rich culture, and historical heritage. As one of Indonesia’s leading
+        educational and tourism hubs, Bogor serves as a vital link between the
+        capital and West Java.
+      </p>
+
+      <p>
+        Its cool climate, diverse population, and growing economy make it an ideal
+        city for implementing Smart City innovations. The city government is committed
+        to advancing digital transformation and sustainability.
+      </p>
+
+      <p>
+        With the motto <strong>“Bogor Smart, Green, and Heritage”</strong>, the local
+        administration aims to integrate modern technology while preserving its 
+        cultural identity and natural environment.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+        <!-- IMPLEMENTATION -->
+        <section class="article-section">
+  <div class="article-container">
+
+    <h2 class="article-title">Smart City Implementation in Bogor</h2>
+
+    <div class="article-content">
+      <p>
+        The Smart City program in Bogor focuses on six main pillars — 
+        <strong>Smart Governance, Smart Economy, Smart Environment, Smart People, Smart Mobility, and Smart Living</strong>. 
+        Each pillar represents a strategic initiative to enhance public services, foster innovation, and ensure inclusivity.
+      </p>
+
+      <p>
+        Digital public services such as online licensing, e-budgeting, and citizen complaint systems 
+        (like “Bogor Single Window” and “SIAGA 112”) are already operational. 
+        In addition, Bogor promotes eco-friendly initiatives such as 
+        <strong>Smart Waste Management</strong>, renewable energy projects, and 
+        digital monitoring of green spaces.
+      </p>
+
+      <p>
+        Collaboration between the local government, private sector, and academic institutions 
+        continues to shape Bogor as a leading example of a sustainable and 
+        people-oriented Smart City in Indonesia.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+        <!-- NEWS SECTION -->
+        <section class="blog" id="blog">
+          <div class="container">
+            <h2 class="h2 section-title">News & Smart City Innovations of Bogor City</h2>
+            <ul class="blog-list has-scrollbar">
+              <!-- Article 1 -->
+              <li>
+                <div class="blog-card">
+                  <figure class="card-banner">
+                    <img src="./assets/images/g1.webp" alt="Bogor City Government Launches Smart City App BSW" class="w-100" />
+                  </figure>
+                  <div class="blog-content">
+                    <div class="blog-content-top">
+                      <ul class="card-meta-list">
+                        <li>
+                          <a href="https://www.ayobogor.com/" class="card-meta-link" target="_blank" rel="noopener noreferrer">
+                            <ion-icon name="person"></ion-icon>
+                            <span>by: Ayo Bogor</span>
+                          </a>
+                        </li>
+                      </ul>
+                      <h3 class="h3 blog-title">
+                        <a
+                          href="#"
+                          class="read-more"
+                          data-title="Bogor City Launches BSW App"
+                          data-content="The Bogor City Government launched the ‘BSW’ mobile application to help residents verify social aid recipients (such as PKH and BPNT beneficiaries) and submit public complaints. The app aims to increase transparency and streamline citizen services by centralizing key functions in one digital platform."
+                          data-image="./assets/images/g1.webp"
+                          data-source="https://www.ayobogor.com/berita-bogor/3111521158/pemkot-bogor-rilis-aplikasi-smart-city-bantu-cek-penerima-bansos-pkh-dan-bpnt-hingga-layani-pengaduan-publik"
+                        >
+                          Bogor City Launches Smart City App “BSW” to Check Social Aid Recipients & Handle Public Complaints
+                        </a>
+                      </h3>
+                    </div>
+                    <div class="blog-content-bottom">
+                      <div class="publish-date"><ion-icon name="calendar"></ion-icon><time datetime="2024-09-10">Sep 10, 2024</time></div>
+                      <a
+                        href="#"
+                        class="read-more-btn read-more"
+                        data-title="Bogor City Launches BSW App"
+                        data-content="The Bogor City Government launched the ‘BSW’ mobile application to help residents verify social aid recipients (such as PKH and BPNT beneficiaries) and submit public complaints. The app aims to increase transparency and streamline citizen services by centralizing key functions in one digital platform."
+                        data-image="./assets/images/g1.webp"
+                        data-source="https://www.ayobogor.com/berita-bogor/3111521158/pemkot-bogor-rilis-aplikasi-smart-city-bantu-cek-penerima-bansos-pkh-dan-bpnt-hingga-layani-pengaduan-publik"
+                        >Read More</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Article 2 -->
+              <li>
+                <div class="blog-card">
+                  <figure class="card-banner">
+                    <img src="./assets/images/g2.webp" alt="Bogor Smart Health Initiative" class="w-100" />
+                  </figure>
+                  <div class="blog-content">
+                    <div class="blog-content-top">
+                      <ul class="card-meta-list">
+                        <li>
+                          <a href="https://www.antaranews.com/" class="card-meta-link" target="_blank" rel="noopener noreferrer"> <ion-icon name="person"></ion-icon><span>by: Antara News</span> </a>
+                        </li>
+                      </ul>
+                      <h3 class="h3 blog-title">
+                        <a
+                          href="#"
+                          class="read-more"
+                          data-title="Bogor Smart Health Action Plan"
+                          data-content="The Bogor Health Office introduced the 'Bogor Smart Health' action plan to expand digital health services, improve coordination between health facilities, and enhance data-driven public health responses. The initiative targets better preventive care and faster service delivery through digital tools."
+                          data-image="./assets/images/g2.webp"
+                          data-source="https://www.antaranews.com/berita/3020245/dinkes-bogor-luncurkan-rencana-aksi-bogor-smart-health"
+                        >
+                          Bogor City Health Office Launches “Bogor Smart Health” Action Plan
+                        </a>
+                      </h3>
+                    </div><br>
+                    <div class="blog-content-bottom">
+                      <div class="publish-date"><ion-icon name="calendar"></ion-icon><time datetime="2024-10-05">Oct 5, 2024</time></div>
+                      <a
+                        href="#"
+                        class="read-more-btn read-more"
+                        data-title="Bogor Smart Health Action Plan"
+                        data-content="The Bogor Health Office introduced the 'Bogor Smart Health' action plan to expand digital health services, improve coordination between health facilities, and enhance data-driven public health responses. The initiative targets better preventive care and faster service delivery through digital tools."
+                        data-image="./assets/images/g2.webp"
+                        data-source="https://www.antaranews.com/berita/3020245/dinkes-bogor-luncurkan-rencana-aksi-bogor-smart-health"
+                        >Read More</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Article 3 -->
+              <li>
+                <div class="blog-card">
+                  <figure class="card-banner">
+                    <img src="./assets/images/g3.jpeg" alt="Green & Heritage City" class="w-100" />
+                  </figure>
+                  <div class="blog-content">
+                    <div class="blog-content-top">
+                      <ul class="card-meta-list">
+                        <li>
+                          <a href="https://rri.co.id/" class="card-meta-link" target="_blank" rel="noopener noreferrer"> <ion-icon name="person"></ion-icon><span>by: RRI</span> </a>
+                        </li>
+                      </ul>
+                      <h3 class="h3 blog-title">
+                        <a
+                          href="#"
+                          class="read-more"
+                          data-title="Green & Heritage City"
+                          data-content="Bogor is developing initiatives that combine green city planning with heritage conservation, seeking to protect cultural sites while promoting public spaces, urban greenery, and sustainable tourism that benefit local communities."
+                          data-image="./assets/images/g3.jpeg"
+                          data-source="https://rri.co.id/iptek/533094/kota-bogor-kembangkan-smart-city-green-heritage-city"
+                        >
+                          Bogor City Develops Smart City Green & Heritage City
+                        </a>
+                      </h3>
+                    </div><br><br>
+                    <div class="blog-content-bottom">
+                      <div class="publish-date"><ion-icon name="calendar"></ion-icon><time datetime="2024-01-27">Jan 27, 2024</time></div>
+                      <a
+                        href="#"
+                        class="read-more-btn read-more"
+                        data-title="Green & Heritage City"
+                        data-content="Bogor is developing initiatives that combine green city planning with heritage conservation, seeking to protect cultural sites while promoting public spaces, urban greenery, and sustainable tourism that benefit local communities."
+                        data-image="./assets/images/g3.jpeg"
+                        data-source="https://rri.co.id/iptek/533094/kota-bogor-kembangkan-smart-city-green-heritage-city"
+                        >Read More</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Article 4 -->
+              <li>
+                <div class="blog-card">
+                  <figure class="card-banner">
+                    <img src="./assets/images/g4.jpg" alt="100 Smart City Movement" class="w-100" />
+                  </figure>
+                  <div class="blog-content">
+                    <div class="blog-content-top">
+                      <ul class="card-meta-list">
+                        <li>
+                          <a href="https://kotabogor.go.id/" class="card-meta-link" target="_blank" rel="noopener noreferrer"> <ion-icon name="person"></ion-icon><span>by: Bogor City Government</span> </a>
+                        </li>
+                      </ul>
+                      <h3 class="h3 blog-title">
+                        <a
+                          href="#"
+                          class="read-more"
+                          data-title="Bogor: Laboratory for Smart City"
+                          data-content="Bogor participates in national movements to become part of Indonesia’s smart city ecosystem, serving as a pilot laboratory for integrated urban solutions and inter-city knowledge exchange."
+                          data-image="./assets/images/g4.jpg"
+                          data-source="https://kotabogor.go.id/berita-detail/gerakan-menuju-100-smart-city-indonesia-kota-bogor-jadi-laboratorium-kota-cerdas"
+                        >
+                          Bogor City Becomes a Laboratory for Smart City Development
+                        </a>
+                      </h3>
+                    </div><br>
+                    <div class="blog-content-bottom">
+                      <div class="publish-date"><ion-icon name="calendar"></ion-icon><time datetime="2024-11-10">Nov 10, 2024</time></div>
+                      <a
+                        href="#"
+                        class="read-more-btn read-more"
+                        data-title="Bogor: Laboratory for Smart City"
+                        data-content="Bogor participates in national movements to become part of Indonesia’s smart city ecosystem, serving as a pilot laboratory for integrated urban solutions and inter-city knowledge exchange."
+                        data-image="./assets/images/g4.jpg"
+                        data-source="https://kotabogor.go.id/berita-detail/gerakan-menuju-100-smart-city-indonesia-kota-bogor-jadi-laboratorium-kota-cerdas"
+                        >Read More</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Article 5 -->
+              <li>
+                <div class="blog-card">
+                  <figure class="card-banner">
+                    <img src="./assets/images/g5.webp" alt="Evaluation Phase Two" class="w-100" />
+                  </figure>
+                  <div class="blog-content">
+                    <div class="blog-content-top">
+                      <ul class="card-meta-list">
+                        <li>
+                          <a href="https://radarbogor.jawapos.com/" class="card-meta-link" target="_blank" rel="noopener noreferrer"> <ion-icon name="person"></ion-icon><span>by: Radar Bogor</span> </a>
+                        </li>
+                      </ul>
+                      <h3 class="h3 blog-title">
+                        <a
+                          href="#"
+                          class="read-more"
+                          data-title="Evaluation Phase Two"
+                          data-content="An independent evaluation entered its second phase to assess Smart City programs in Bogor—looking at adoption, impact, and opportunities for improvement across services and infrastructure."
+                          data-image="./assets/images/g5.webp"
+                          data-source="https://radarbogor.jawapos.com/bogor/2475307973/penerapan-smart-city-di-kota-bogor-masuk-evaluasi-tahap-kedua-begini-hasilnya"
+                        >
+                          Second Phase Evaluation of Bogor Smart City Implementation
+                        </a>
+                      </h3>
+                    </div><br>
+                    <div class="blog-content-bottom">
+                      <div class="publish-date"><ion-icon name="calendar"></ion-icon><time datetime="2024-12-05">Dec 5, 2024</time></div>
+                      <a
+                        href="#"
+                        class="read-more-btn read-more"
+                        data-title="Evaluation Phase Two"
+                        data-content="An independent evaluation entered its second phase to assess Smart City programs in Bogor—looking at adoption, impact, and opportunities for improvement across services and infrastructure."
+                        data-image="./assets/images/g5.webp"
+                        data-source="https://radarbogor.jawapos.com/bogor/2475307973/penerapan-smart-city-di-kota-bogor-masuk-evaluasi-tahap-kedua-begini-hasilnya"
+                        >Read More</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Article 6 -->
+              <li>
+                <div class="blog-card">
+                  <figure class="card-banner">
+                    <img src="./assets/images/g6.png" alt="Smart City Connection" class="w-100" />
+                  </figure>
+                  <div class="blog-content">
+                    <div class="blog-content-top">
+                      <ul class="card-meta-list">
+                        <li>
+                          <a href="https://seputarindonesia.co.id/" class="card-meta-link" target="_blank" rel="noopener noreferrer"> <ion-icon name="person"></ion-icon><span>by: APTIKNAS Bogor</span> </a>
+                        </li>
+                      </ul>
+                      <h3 class="h3 blog-title">
+                        <a
+                          href="#"
+                          class="read-more"
+                          data-title="Smart City Connection Event"
+                          data-content="Local ICT associations and private partners hosted a Smart City Connection event to demonstrate fiber infrastructure, collaboration models, and practical solutions for urban services."
+                          data-image="./assets/images/g6.png"
+                          data-source="https://seputarindonesia.co.id/2024/11/28/dpd-aptiknas-bogor-dan-fiberstar-sukses-selenggarakan-smart-city-connection/"
+                        >
+                          Smart City Connection: Technological Collaboration in Bogor
+                        </a>
+                      </h3>
+                    </div><br>
+                    <div class="blog-content-bottom">
+                      <div class="publish-date"><ion-icon name="calendar"></ion-icon><time datetime="2024-11-28">Nov 28, 2024</time></div>
+                      <a
+                        href="#"
+                        class="read-more-btn read-more"
+                        data-title="Smart City Connection Event"
+                        data-content="Local ICT associations and private partners hosted a Smart City Connection event to demonstrate fiber infrastructure, collaboration models, and practical solutions for urban services."
+                        data-image="./assets/images/g6.png"
+                        data-source="https://seputarindonesia.co.id/2024/11/28/dpd-aptiknas-bogor-dan-fiberstar-sukses-selenggarakan-smart-city-connection/"
+                        >Read More</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Article 7 -->
+              <li>
+                <div class="blog-card">
+                  <figure class="card-banner">
+                    <img src="./assets/images/g7.jpg" alt="Bogor Vision 2045" class="w-100" />
+                  </figure>
+                  <div class="blog-content">
+                    <div class="blog-content-top">
+                      <ul class="card-meta-list">
+                        <li>
+                          <a href="https://bogor.disway.id/" class="card-meta-link" target="_blank" rel="noopener noreferrer"> <ion-icon name="person"></ion-icon><span>by: Disway Bogor</span> </a>
+                        </li>
+                      </ul>
+                      <h3 class="h3 blog-title">
+                        <a
+                          href="#"
+                          class="read-more"
+                          data-title="Towards 2045 Vision"
+                          data-content="Bogor outlines a long-term vision toward 2045 to become a smart, green, and heritage-conscious city—prioritizing sustainable urban design, cultural preservation, and inclusive growth."
+                          data-image="./assets/images/g7.jpg"
+                          data-source="https://bogor.disway.id/read/871/menuju-2045-bogor-siap-jadi-kota-cerdas-hijau-dan-pusaka"
+                        >
+                          Towards 2045: Bogor Ready to Become a Smart, Green, and Heritage-Based City
+                        </a>
+                      </h3>
+                    </div><br>
+                    <div class="blog-content-bottom">
+                      <div class="publish-date"><ion-icon name="calendar"></ion-icon><time datetime="2025-01-15">Jan 15, 2025</time></div>
+                      <a
+                        href="#"
+                        class="read-more-btn read-more"
+                        data-title="Towards 2045 Vision"
+                        data-content="Bogor outlines a long-term vision toward 2045 to become a smart, green, and heritage-conscious city—prioritizing sustainable urban design, cultural preservation, and inclusive growth."
+                        data-image="./assets/images/g7.jpg"
+                        data-source="https://bogor.disway.id/read/871/menuju-2045-bogor-siap-jadi-kota-cerdas-hijau-dan-pusaka"
+                        >Read More</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- MODAL POPUP -->
+        <div id="popupModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-image">
+              <img id="modalImage" src="" alt="Popup Image" />
+            </div>
+            <h3 id="modalTitle"></h3>
+            <p id="modalContent"></p>
+            <a id="modalSource" href="#" target="_blank" rel="noopener noreferrer" class="modal-source"> <span>View Source</span> <ion-icon name="link-outline"></ion-icon> </a>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2025 Smart City Bogor | All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODAL SCRIPT -->
+    <script>
+      const modal = document.getElementById('popupModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalContent = document.getElementById('modalContent');
+      const modalImage = document.getElementById('modalImage');
+      const modalSource = document.getElementById('modalSource');
+      const closeBtn = document.querySelector('.close');
+
+      document.querySelectorAll('.read-more').forEach((item) => {
+        item.addEventListener('click', function (e) {
+          e.preventDefault();
+          modalTitle.textContent = this.getAttribute('data-title') || '';
+          modalContent.textContent = this.getAttribute('data-content') || '';
+          modalImage.src = this.getAttribute('data-image') || '';
+          modalSource.href = this.getAttribute('data-source') || '#';
+          modal.style.display = 'block';
+        });
+      });
+
+      if (closeBtn) closeBtn.onclick = () => (modal.style.display = 'none');
+      window.onclick = (e) => {
+        if (e.target == modal) modal.style.display = 'none';
+      };
+    </script>
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- Custom Script -->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

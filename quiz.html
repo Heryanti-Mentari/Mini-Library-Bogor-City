@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart City Quiz</title>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="header" data-header>
+      <div class="overlay" data-overlay></div>
+
+      <div class="header-bottom">
+        <div class="container">
+          <a href="index.html" class="logo">
+            <img src="./assets/images/cityp.png" alt="Smart City logo" />
+          </a>
+
+          <nav class="navbar" data-navbar>
+            <div class="navbar-top">
+              <a href="index.html" class="logo">
+                <img src="./assets/images/cityp.png" alt="Smart City logo" />
+              </a>
+
+              <button
+                class="nav-close-btn"
+                data-nav-close-btn
+                aria-label="Close Menu"
+              >
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <div class="navbar-bottom">
+              <ul class="navbar-list">
+                <li><a href="index.html" class="navbar-link" data-nav-link>Home</a></li>
+                <li><a href="bogor.html" class="navbar-link" data-nav-link>Smart City Bogor</a></li>
+                <li><a href="profile.html" class="navbar-link" data-nav-link>Profile</a></li>
+                <li><a href="quiz.html" class="navbar-link" data-nav-link>Quiz</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="header-bottom-actions">
+            <button class="header-bottom-actions-btn" aria-label="Search">
+              <ion-icon name="search-outline"></ion-icon>
+              <span>Search</span>
+            </button>
+
+            <button class="header-bottom-actions-btn" aria-label="Profile">
+              <ion-icon name="person-outline"></ion-icon>
+              <span>Profile</span>
+            </button>
+
+            <button
+              class="header-bottom-actions-btn"
+              data-nav-open-btn
+              aria-label="Open Menu"
+            >
+              <ion-icon name="menu-outline"></ion-icon>
+              <span>Menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="container">
+        <h2 class="h2 section-title">Question Categories About Smart Cities</h2>
+
+        <ul class="features-list">
+          <li>
+            <a href="#" class="features-card" data-level="1">
+              <div class="card-icon">
+                <ion-icon name="compass-outline"></ion-icon>
+              </div>
+              <h3 class="card-title">Explore Mode</h3>
+              <div class="card-btn">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="features-card" data-level="2">
+              <div class="card-icon">
+                <ion-icon name="trophy-outline"></ion-icon>
+              </div>
+              <h3 class="card-title">Challenge Mode</h3>
+              <div class="card-btn">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="features-card" data-level="3">
+              <div class="card-icon">
+                <ion-icon name="star-outline"></ion-icon>
+              </div>
+              <h3 class="card-title">Master Mode</h3>
+              <div class="card-btn">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- QUIZ SCRIPT -->
+    <script>
+      (function () {
+        /* ================================
+           ANSWER KEYS
+        ================================== */
+        const keys = {
+          1: ["b", "a", "b", "a", "b", "a", "b", "c", "a", "a"],
+          2: ["b", "b", "a", "a", "a"],
+          3: ["b", "a", "a"],
+        };
+
+        /* ================================
+           QUESTION BANK
+        ================================== */
+        const questions = {
+          1: [
+            {
+              q: "What is a smart city?",
+              opts: [
+                "A city with skyscrapers",
+                "A city that uses technology to improve public services and quality of life",
+                "A city with few residents",
+                "A city without public transportation",
+              ],
+            },
+            {
+              q: "Smart economy relates to …",
+              opts: [
+                "Innovation, competitiveness, and economic productivity",
+                "Only the growth of traditional markets",
+                "Eliminating small businesses",
+                "No role of technology in the economy",
+              ],
+            },
+            {
+              q: "What is the main goal of smart governance?",
+              opts: [
+                "Closing public access to government services",
+                "Improving governance with technology and citizen participation",
+                "Raising taxes without transparency",
+                "Eliminating citizen involvement",
+              ],
+            },
+            {
+              q: "Smart environment is related to …",
+              opts: [
+                "Waste, energy, and environmental quality management using technology",
+                "Eliminating all city parks",
+                "Focusing only on building construction",
+                "Ignoring environmental issues",
+              ],
+            },
+            {
+              q: "An example of smart mobility is …",
+              opts: [
+                "Manual tickets without integration",
+                "App-based public transportation systems",
+                "Relying only on private vehicles",
+                "Roads without traffic management",
+              ],
+            },
+            {
+              q: "Smart living emphasizes …",
+              opts: [
+                "Improving quality of life through public facilities, health, and safety",
+                "Luxury living without considering the environment",
+                "Limiting access to education",
+                "Exclusive living for certain groups",
+              ],
+            },
+            {
+              q: "What is an indicator of a smart society?",
+              opts: [
+                "Low citizen participation",
+                "Education, creativity, participation, and cultural openness",
+                "Blocking citizen communication",
+                "No social communities",
+              ],
+            },
+            {
+              q: "Bogor City is an example of …",
+              opts: [
+                "Industrial city",
+                "Metropolitan city",
+                "A city developing a smart city concept",
+                "The least populated city",
+              ],
+            },
+            {
+              q: "What is the foundation of smart city development?",
+              opts: [
+                "Information and Communication Technology (ICT)",
+                "Mining and industry",
+                "Only physical construction",
+                "Closing access to information",
+              ],
+            },
+            {
+              q: "One of the goals of smart city is …",
+              opts: [
+                "Improving citizens’ quality of life",
+                "Reducing transparency",
+                "Eliminating public transportation",
+                "Erasing local culture",
+              ],
+            },
+          ],
+
+          2: [
+            {
+              q: "In smart governance, why is citizen participation important?",
+              opts: [
+                "It hinders government innovation",
+                "It makes public services more transparent and participatory",
+                "It limits technology use",
+                "It removes digital services",
+              ],
+            },
+            {
+              q: "Smart economy is expected to boost …",
+              opts: [
+                "Unhealthy business competition",
+                "Innovation in SMEs, global competitiveness, and new jobs",
+                "Elimination of the informal sector",
+                "Blocking digital finance access",
+              ],
+            },
+            {
+              q: "An example of smart environment application is …",
+              opts: [
+                "Waste management with sensors and air quality monitoring",
+                "Burning trash traditionally",
+                "Ignoring water and air pollution",
+                "Increasing environmental damage",
+              ],
+            },
+            {
+              q: "The key factor supporting smart living is …",
+              opts: [
+                "Health, safety, and comfort infrastructure supported by technology",
+                "Reducing public facilities",
+                "Declining health services",
+                "Focusing only on economic growth",
+              ],
+            },
+            {
+              q: "How does smart mobility affect quality of life?",
+              opts: [
+                "Smart transport makes access easier, faster, and eco-friendly",
+                "It restricts citizen movement",
+                "It increases traffic jams",
+                "It removes public transport",
+              ],
+            },
+          ],
+
+          3: [
+            {
+              q: "How do smart governance and smart society interact in a smart city?",
+              opts: [
+                "Government blocks citizen participation",
+                "Government and citizens collaborate in tech-based decision-making",
+                "Citizens are forbidden to contribute",
+                "No direct relation",
+              ],
+            },
+            {
+              q: "Smart city requires balance between environment, social, and economy. What does this imply?",
+              opts: [
+                "Policies must ensure sustainability and social fairness",
+                "Focusing only on rapid economic growth",
+                "Ignoring environment for infrastructure",
+                "Reducing public participation",
+              ],
+            },
+            {
+              q: "One challenge for smart cities in Indonesia is …",
+              opts: [
+                "Limited technology infrastructure and human resources",
+                "No need for internet use",
+                "Citizens reject all digital services",
+                "All cities are ready without obstacles",
+              ],
+            },
+          ],
+        };
+
+        /* ==========================================
+           MODAL UTILITY
+        =========================================== */
+        function elFromHTML(html) {
+          const tmpl = document.createElement("template");
+          tmpl.innerHTML = html.trim();
+          return tmpl.content.firstChild;
+        }
+
+        function createModal() {
+          const modal = elFromHTML(`
+            <div id="sc-quiz-modal" aria-hidden="true"
+              style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:9999;">
+              <div id="sc-quiz-backdrop"
+                style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+
+              <div role="dialog" aria-modal="true"
+                style="position:relative;max-width:900px;width:min(95%,900px);max-height:88vh;
+                       overflow:auto;border-radius:10px;padding:18px;background:#fff;
+                       box-shadow:0 8px 30px rgba(0,0,0,0.3);">
+                
+                <button id="sc-quiz-close" aria-label="Close"
+                  style="position:absolute;right:12px;top:10px;border:none;background:transparent;
+                         font-size:20px;cursor:pointer;">✕</button>
+
+                <div id="sc-quiz-header" style="margin-bottom:6px;">
+                  <h3 style="margin:0 0 6px 0;">Smart City Quiz</h3>
+                  <small id="sc-quiz-level-info" style="color:#555;"></small>
+                </div>
+
+                <form id="sc-quiz-form">
+                  <div id="sc-quiz-questions"></div>
+
+                  <div style="display:flex;gap:8px;align-items:center;margin-top:12px;">
+                    <button type="submit" id="sc-quiz-submit"
+                      style="padding:8px 14px;border-radius:6px;border:none;cursor:pointer;">
+                      Submit
+                    </button>
+
+                    <button type="button" id="sc-quiz-check-all"
+                      style="padding:8px 14px;border-radius:6px;border:none;cursor:pointer;background:#eee;">
+                      Check Answers
+                    </button>
+
+                    <div id="sc-quiz-result"
+                      style="margin-left:8px;color:#333;font-weight:600;"></div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          `);
+
+          document.body.appendChild(modal);
+          return modal;
+        }
+
+        /* ==========================================
+           RENDER QUESTIONS INTO MODAL
+        =========================================== */
+        function renderQuestions(level, modal) {
+          const container = modal.querySelector("#sc-quiz-questions");
+          container.innerHTML = "";
+
+          questions[level].forEach((item, idx) => {
+            const qBox = document.createElement("fieldset");
+            qBox.style.padding = "10px";
+            qBox.style.border = "1px solid #e6e6e6";
+            qBox.style.marginBottom = "8px";
+            qBox.style.borderRadius = "6px";
+            qBox.dataset.qindex = idx;
+
+            const legend = document.createElement("legend");
+            legend.style.fontWeight = "600";
+            legend.textContent = `${idx + 1}. ${item.q}`;
+            qBox.appendChild(legend);
+
+            const opts = ["a", "b", "c", "d"];
+
+            item.opts.forEach((optText, optIdx) => {
+              const id = `sc-q${level}-${idx}-${optIdx}`;
+
+              const label = document.createElement("label");
+              label.style.display = "block";
+              label.style.cursor = "pointer";
+              label.style.padding = "6px 4px";
+              label.htmlFor = id;
+
+              const radio = document.createElement("input");
+              radio.type = "radio";
+              radio.name = `q-${idx}`;
+              radio.value = opts[optIdx];
+              radio.id = id;
+              radio.style.marginRight = "8px";
+
+              label.appendChild(radio);
+
+              const span = document.createElement("span");
+              span.textContent = `${opts[optIdx].toUpperCase()}. ${optText}`;
+              label.appendChild(span);
+
+              qBox.appendChild(label);
+            });
+
+            const err = document.createElement("div");
+            err.className = "sc-q-error";
+            err.style.color = "#b00020";
+            err.style.fontSize = "13px";
+            err.style.marginTop = "6px";
+
+            qBox.appendChild(err);
+            container.appendChild(qBox);
+          });
+        }
+
+        /* ==========================================
+           SHOW / HIDE MODAL
+        =========================================== */
+        function showModal(level) {
+          if (!window._scQuizModal) window._scQuizModal = createModal();
+
+          const modal = window._scQuizModal;
+          modal.style.display = "flex";
+          modal.setAttribute("aria-hidden", "false");
+          modal._level = level;
+
+          modal.querySelector("#sc-quiz-level-info").textContent =
+            `Level ${level} — ${questions[level].length} questions`;
+
+          modal.querySelector("#sc-quiz-result").textContent = "";
+
+          renderQuestions(level, modal);
+        }
+
+        function hideModal() {
+          if (!window._scQuizModal) return;
+          window._scQuizModal.style.display = "none";
+          window._scQuizModal.setAttribute("aria-hidden", "true");
+        }
+
+        /* ==========================================
+           EVALUATION + FEEDBACK
+        =========================================== */
+        function evaluate(level) {
+          const modal = window._scQuizModal;
+          const form = modal.querySelector("#sc-quiz-form");
+          const total = questions[level].length;
+
+          const wrong = [];
+
+          for (let i = 0; i < total; i++) {
+            const picked = form.querySelector(`input[name="q-${i}"]:checked`);
+            const value = picked ? picked.value.toLowerCase() : null;
+            const correct = keys[level][i];
+
+            if (value !== correct) wrong.push({ index: i, selected: value });
+          }
+
+          return { correctCount: total - wrong.length, total, wrong };
+        }
+
+        function showFeedback(level, result) {
+          const modal = window._scQuizModal;
+          const form = modal.querySelector("#sc-quiz-form");
+
+          const fieldsets = form.querySelectorAll("fieldset");
+
+          // Reset styles
+          fieldsets.forEach((fs) => {
+            fs.style.border = "1px solid #e6e6e6";
+            fs.querySelector(".sc-q-error").textContent = "";
+            fs.querySelectorAll("label").forEach((label) => {
+              label.style.background = "transparent";
+            });
+          });
+
+          // Mark wrong answers
+          result.wrong.forEach((w) => {
+            const fs = form.querySelector(`fieldset[data-qindex="${w.index}"]`);
+            const correctKey = keys[level][w.index];
+
+            fs.style.border = "2px solid #b00020";
+
+            const err = fs.querySelector(".sc-q-error");
+            err.textContent = w.selected
+              ? `Your answer "${w.selected.toUpperCase()}" is incorrect.`
+              : "No answer selected.";
+
+            // Highlight correct answer
+            const correctInput = fs.querySelector(
+              `input[value="${correctKey}"]`
+            );
+            if (correctInput)
+              correctInput.parentElement.style.background = "#d4edda";
+          });
+
+          // Highlight correct answers user got right
+          const total = questions[level].length;
+
+          for (let i = 0; i < total; i++) {
+            if (!result.wrong.find((w) => w.index === i)) {
+              const fs = form.querySelector(`fieldset[data-qindex="${i}"]`);
+              const correctKey = keys[level][i];
+              const correctInput = fs.querySelector(
+                `input[value="${correctKey}"]`
+              );
+
+              if (correctInput)
+                correctInput.parentElement.style.background = "#d4edda";
+            }
+          }
+
+          // Display summary
+          const res = modal.querySelector("#sc-quiz-result");
+          res.textContent = `${result.correctCount}/${result.total} correct`;
+
+          res.style.color =
+            result.correctCount === result.total ? "green" : "#b00020";
+
+          if (result.correctCount === result.total) {
+            res.textContent = `Perfect! ${result.correctCount}/${result.total} correct ✅`;
+          }
+        }
+
+        /* ==========================================
+           EVENT HANDLERS
+        =========================================== */
+        function attachEvents() {
+          // Open quiz levels
+          document.querySelectorAll(".features-card").forEach((card) => {
+            card.addEventListener("click", (e) => {
+              e.preventDefault();
+              const level = Number(card.dataset.level);
+              showModal(level);
+            });
+          });
+
+          // Close modal
+          document.addEventListener("click", (e) => {
+            if (!window._scQuizModal) return;
+
+            if (
+              e.target.id === "sc-quiz-close" ||
+              e.target.id === "sc-quiz-backdrop"
+            ) {
+              hideModal();
+            }
+          });
+
+          // Submit quiz
+          document.addEventListener("submit", (e) => {
+            if (e.target.id === "sc-quiz-form") {
+              e.preventDefault();
+              const level = window._scQuizModal._level || 1;
+              const result = evaluate(level);
+              showFeedback(level, result);
+            }
+          });
+
+          // Check all answers
+          document.addEventListener("click", (e) => {
+            if (e.target.id === "sc-quiz-check-all") {
+              const level = window._scQuizModal._level || 1;
+              const result = evaluate(level);
+              showFeedback(level, result);
+            }
+          });
+
+          // Escape key closes modal
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") hideModal();
+          });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          createModal();
+          attachEvents();
+        });
+      })();
+    </script>
+
+    <!-- custom js -->
+    <script src="./assets/js/script.js"></script>
+
+    <!-- ionicons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

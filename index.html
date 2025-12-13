@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart City Overview</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      /* Popup Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        overflow-y: auto;
+      }
+
+      .modal-content {
+        background: #fff;
+        margin: 5% auto;
+        padding: 25px;
+        border-radius: 14px;
+        width: 90%;
+        max-width: 600px;
+        animation: fadeIn 0.3s ease-in-out;
+        text-align: center;
+      }
+
+      .modal-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+        height: 260px; /* tinggi tetap agar gambar terpusat */
+      }
+
+      .modal-image img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+
+      .modal-source {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 14px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: 600;
+      }
+
+      .close {
+        float: right;
+        font-size: 26px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .close:hover {
+        color: red;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .modal-content {
+          width: 95%;
+          margin: 20% auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="header" data-header>
+      <div class="overlay" data-overlay></div>
+
+      <div class="header-bottom">
+        <div class="container">
+          <a href="#" class="logo">
+            <img src="./assets/images/cityp.png" alt="Smart City Logo" />
+          </a>
+
+          <nav class="navbar" data-navbar>
+            <div class="navbar-top">
+              <a href="#" class="logo"><img src="./assets/images/cityp.png" alt="Smart City Logo" /></a>
+              <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <div class="navbar-bottom">
+              <ul class="navbar-list">
+                <li><a href="index.html" class="navbar-link active" data-nav-link>Home</a></li>
+                <li><a href="bogor.html" class="navbar-link" data-nav-link>Smart City Bogor</a></li>
+                <li><a href="profile.html" class="navbar-link" data-nav-link>Profile</a></li>
+                <li><a href="quiz.html" class="navbar-link" data-nav-link>Quiz</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="header-bottom-actions">
+            <button class="header-bottom-actions-btn" aria-label="Search">
+              <ion-icon name="search-outline"></ion-icon>
+              <span>Search</span>
+            </button>
+
+            <button class="header-bottom-actions-btn" aria-label="Profile">
+              <ion-icon name="person-outline"></ion-icon>
+              <span>Profile</span>
+            </button>
+
+            <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+              <ion-icon name="menu-outline"></ion-icon>
+              <span>Menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <article>
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+          <div class="container">
+            <div class="hero-content">
+              <h2 class="h1 hero-title">What is a Smart City?</h2>
+              <p class="hero-text">A Smart City is an urban area that integrates technology and innovation to efficiently connect physical, social, and economic systems, improving public services and enhancing citizens' quality of life.</p>
+
+              <p>
+                <a class="source-link" href="https://www.kajianpustaka.com/2020/01/smart-city-pengertian-karakteristik-indikator-dan-penerapan.html" target="_blank" rel="noopener noreferrer"> <i class="fas fa-link"></i> Source </a>
+              </p>
+            </div>
+
+            <figure class="hero-banner">
+              <img src="./assets/images/city.jpg" alt="Modern city illustration" class="w-100" />
+            </figure>
+          </div>
+        </section>
+
+        <!-- SIX PILLARS SECTION -->
+        <section class="service" id="service">
+          <div class="container">
+            <h2 class="h2 section-title">Six Pillars of a Smart City</h2>
+
+            <div class="video-wrapper" style="text-align: center; margin-bottom: 40px">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/LR55vhmhiY4?si=JGe4b6y0guX2tn0N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <ul class="service-list">
+              <!-- Smart Economy -->
+              <li>
+                <div class="service-card">
+                  <div class="card-icon"><img src="./assets/images/1.png" alt="Smart Economy icon" /></div>
+                  <h3 class="h3 card-title"><a href="#">Smart Economy</a></h3>
+                  <p class="card-text">Promotes innovation, entrepreneurship, and digital industries to support sustainable economic growth and global competitiveness.</p>
+                  <a
+                    href="#"
+                    class="card-link read-more"
+                    data-title="Smart Economy"
+                    data-content="Smart Economy encourages creativity, innovation, and entrepreneurship while fostering digital industries that enhance productivity and competitiveness in the global market."
+                    data-image="./assets/images/1.png"
+                    data-source="https://www.peta-network.com/pengertian-smart-city/"
+                  >
+                    <span>Read More</span> <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
+              </li>
+
+              <!-- Smart Environment -->
+              <li>
+                <div class="service-card">
+                  <div class="card-icon"><img src="./assets/images/2.png" alt="Smart Environment icon" /></div>
+                  <h3 class="h3 card-title"><a href="#">Smart Environment</a></h3>
+                  <p class="card-text">Focuses on environmental sustainability through energy efficiency, pollution control, and responsible.</p>
+                  <a
+                    href="#"
+                    class="card-link read-more"
+                    data-title="Smart Environment"
+                    data-content="Smart Environment highlights the importance of sustainability by reducing pollution, managing waste efficiently, and promoting renewable energy usage for a cleaner future."
+                    data-image="./assets/images/2.png"
+                    data-source="https://smartcity.jakarta.go.id/blog/mengenal-konsep-pengertian-smart-city/"
+                  >
+                    <span>Read More</span> <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
+              </li>
+
+              <!-- Smart Living -->
+              <li>
+                <div class="service-card">
+                  <div class="card-icon"><img src="./assets/images/3.png" alt="Smart Living icon" /></div>
+                  <h3 class="h3 card-title"><a href="#">Smart Living</a></h3>
+                  <p class="card-text">Improves citizens’ quality of life by providing better healthcare, housing, education, safety, and digital-based public services.</p>
+                  <a
+                    href="#"
+                    class="card-link read-more"
+                    data-title="Smart Living"
+                    data-content="Smart Living enhances everyday life through efficient public services, safe neighborhoods, accessible healthcare, and sustainable housing supported by technology."
+                    data-image="./assets/images/3.png"
+                    data-source="https://www.linknet.id/article/indikator-smart-city"
+                  >
+                    <span>Read More</span> <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
+              </li>
+
+              <!-- Smart Mobility -->
+              <li>
+                <div class="service-card">
+                  <div class="card-icon"><img src="./assets/images/4.png" alt="Smart Mobility icon" /></div>
+                  <h3 class="h3 card-title"><a href="#">Smart Mobility</a></h3>
+                  <p class="card-text">Develops efficient and sustainable transportation systems to minimize congestion and reduce emissions across the city.</p>
+                  <a
+                    href="#"
+                    class="card-link read-more"
+                    data-title="Smart Mobility"
+                    data-content="Smart Mobility integrates public transportation, traffic management, and eco-friendly solutions to improve mobility and accessibility for all residents."
+                    data-image="./assets/images/4.png"
+                    data-source="https://smartcity.jakarta.go.id/"
+                  >
+                    <span>Read More</span> <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
+              </li>
+
+              <!-- Smart People -->
+              <li>
+                <div class="service-card">
+                  <div class="card-icon"><img src="./assets/images/5.png" alt="Smart People icon" /></div>
+                  <h3 class="h3 card-title"><a href="#">Smart People</a></h3>
+                  <p class="card-text">Encourages digital literacy, innovation, and civic participation, fostering inclusive communities that embrace technology responsibly.</p>
+                  <a
+                    href="#"
+                    class="card-link read-more"
+                    data-title="Smart People"
+                    data-content="Smart People are digitally literate, innovative, and socially active citizens who collaborate and participate in shaping the city's development."
+                    data-image="./assets/images/5.png"
+                    data-source="https://smartcity.jakarta.go.id/en/blog/smart-people-interaksi-sosial-warga-yang-berkualitas/"
+                  >
+                    <span>Read More</span> <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
+              </li>
+
+              <!-- Smart Government -->
+              <li>
+                <div class="service-card">
+                  <div class="card-icon"><img src="./assets/images/6.png" alt="Smart Government icon" /></div>
+                  <h3 class="h3 card-title"><a href="#">Smart Government</a></h3>
+                  <p class="card-text">Implements transparent, data-driven public administration supported by digital services and community engagement.</p>
+                  <br />
+                  <a
+                    href="#"
+                    class="card-link read-more"
+                    data-title="Smart Government"
+                    data-content="Smart Government emphasizes openness, accountability, and efficiency through digital services and data-based decision-making that benefit the public."
+                    data-image="./assets/images/6.png"
+                    data-source="https://www.frontiersin.org/journals/built-environment/articles/10.3389/fbuil.2022.1065652/full"
+                  >
+                    <span>Read More</span> <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- POPUP MODAL -->
+        <div id="popupModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-image"><img id="modalImage" src="" alt="Popup Image" /></div>
+            <h3 id="modalTitle"></h3>
+            <p id="modalContent"></p>
+            <a id="modalSource" href="#" target="_blank" rel="noopener noreferrer" class="modal-source"> <span>View Source</span> <ion-icon name="link-outline"></ion-icon> </a>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2025 Smart City Bogor | All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+      // Modal Logic
+      const modal = document.getElementById('popupModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalContent = document.getElementById('modalContent');
+      const modalImage = document.getElementById('modalImage');
+      const modalSource = document.getElementById('modalSource');
+      const closeBtn = document.querySelector('.close');
+
+      document.querySelectorAll('.read-more').forEach((item) => {
+        item.addEventListener('click', function (e) {
+          e.preventDefault();
+          modalTitle.textContent = this.getAttribute('data-title');
+          modalContent.textContent = this.getAttribute('data-content');
+          modalImage.src = this.getAttribute('data-image');
+          modalSource.href = this.getAttribute('data-source');
+          modal.style.display = 'block';
+        });
+      });
+
+      closeBtn.onclick = () => (modal.style.display = 'none');
+      window.onclick = (e) => {
+        if (e.target === modal) modal.style.display = 'none';
+      };
+    </script>
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- Custom Script -->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
