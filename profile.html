@@ -17,7 +17,6 @@
       rel="stylesheet"
     />
 
-    <!-- INLINE CSS  -->
     <style>
       .profile-section {
         padding: 80px 0;
@@ -66,10 +65,10 @@
 
       .accordion-section {
         margin-top: 60px;
+        text-align: left;
         max-width: 900px;
         margin-left: auto;
         margin-right: auto;
-        text-align: left;
       }
 
       .accordion-section h2 {
@@ -92,6 +91,7 @@
         padding: 15px 20px;
         font-weight: 600;
         cursor: pointer;
+        transition: background 0.3s;
       }
 
       .accordion-header:hover {
@@ -113,6 +113,8 @@
         padding: 20px;
         max-height: 500px;
         opacity: 1;
+        transition: max-height 0.6s ease, padding 0.4s ease,
+          opacity 0.4s ease-in;
       }
     </style>
   </head>
@@ -121,7 +123,6 @@
     <!-- HEADER -->
     <header class="header" data-header>
       <div class="overlay" data-overlay></div>
-
       <div class="header-bottom">
         <div class="container">
           <a href="index.html" class="logo">
@@ -129,66 +130,519 @@
           </a>
 
           <nav class="navbar" data-navbar>
-            <ul class="navbar-list">
-              <li><a href="index.html" class="navbar-link">Home</a></li>
-              <li>
-                <a href="bogor.html" class="navbar-link">Smart City Bogor</a>
-              </li>
-              <li>
-                <a href="profile.html" class="navbar-link active">Profile</a>
-              </li>
-              <li><a href="quiz.html" class="navbar-link">Quiz</a></li>
-            </ul>
+            <div class="navbar-top">
+              <a href="index.html" class="logo">
+                <img src="./assets/images/cityp.png" alt="CityPedia Logo" />
+              </a>
+              <button
+                class="nav-close-btn"
+                data-nav-close-btn
+                aria-label="Close Menu"
+              >
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <div class="navbar-bottom">
+              <ul class="navbar-list">
+                <li>
+                  <a href="index.html" class="navbar-link" data-nav-link
+                    >Home</a
+                  >
+                </li>
+                <li>
+                  <a href="bogor.html" class="navbar-link" data-nav-link
+                    >Smart City Bogor</a
+                  >
+                </li>
+                <li>
+                  <a href="profile.html" class="navbar-link active" data-nav-link
+                    >Profile</a
+                  >
+                </li>
+                <li>
+                  <a href="quiz.html" class="navbar-link" data-nav-link
+                    >Quiz</a
+                  >
+                </li>
+              </ul>
+            </div>
           </nav>
+
+          <div class="header-bottom-actions">
+            <button
+              class="header-bottom-actions-btn"
+              aria-label="Search"
+            >
+              <ion-icon name="search-outline"></ion-icon><span>Search</span>
+            </button>
+            <button
+              class="header-bottom-actions-btn"
+              aria-label="Profile"
+            >
+              <ion-icon name="person-outline"></ion-icon><span>Profile</span>
+            </button>
+            <button
+              class="header-bottom-actions-btn"
+              data-nav-open-btn
+              aria-label="Open Menu"
+            >
+              <ion-icon name="menu-outline"></ion-icon><span>Menu</span>
+            </button>
+          </div>
         </div>
       </div>
     </header>
 
-    <!-- MAIN -->
+    <!-- MAIN CONTENT -->
     <main class="profile-section">
       <div class="container">
         <h1 class="section-title">Profile Mahasiswa</h1>
 
         <div class="profile-grid">
           <div class="profile-card">
-            <img src="./assets/images/agnita.jpg" alt="Foto Agnita" />
+            <img src="./assets/images/agnita.jpg" alt="Foto Agnita Putri" />
             <h3>Agnita Najwa Darmawan</h3>
             <p>NIM: 2307055<br />Email: agnita@email.com</p>
           </div>
 
           <div class="profile-card">
-            <img src="./assets/images/asri.jpg" alt="Foto Asri" />
+            <img src="./assets/images/asri.jpg" alt="Foto Asri Dwi Aryanti" />
             <h3>Asri Dwi Aryanti</h3>
             <p>NIM: 2307060<br />Email: asri@gmail.com</p>
           </div>
 
           <div class="profile-card">
-            <img src="./assets/images/amira.jpg" alt="Foto Amira" />
+            <img src="./assets/images/amira.jpg" alt="Foto Amira Rodianti" />
             <h3>Amira Rodianti</h3>
             <p>NIM: 2307058<br />Email: amira.rodianti17@gmail.com</p>
           </div>
 
           <div class="profile-card">
-            <img src="./assets/images/heryanti.jpg" alt="Foto Heryanti" />
+            <img
+              src="./assets/images/heryanti.jpg"
+              alt="Foto Heryanti Rima Mentari"
+            />
             <h3>Heryanti Rima Mentari</h3>
             <p>NIM: 2307068<br />Email: heryantimentari28@gmail.com</p>
           </div>
 
           <div class="profile-card">
-            <img src="./assets/images/rafli2.jpg" alt="Foto Rafli" />
+            <img
+              src="./assets/images/rafli2.jpg"
+              alt="Foto Muhammad Rafli"
+            />
             <h3>Muhammad Rafli</h3>
             <p>NIM: 2307071<br />Email: raflimuhammad069@gmail.com</p>
+          </div>
+        </div>
+
+        <!-- ACCORDION -->
+        <div class="accordion-section">
+          <h2>Members’ Roles and Contributions</h2>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              Asri – Reading Material Research and Curation
+            </div>
+            <div class="accordion-content">
+              Asri was responsible for researching and gathering reading
+              materials for the Mini Library. She collected English articles,
+              short stories, and educational resources related to the Smart City
+              theme. She also ensured that the selected texts were suitable for
+              learners’ reading levels and written in clear, comprehensible
+              English. Her work significantly supported the development of
+              reading skills by providing authentic and relevant content. Asri
+              believed that the project’s main strength was the variety and
+              quality of materials, while its weakness was the absence of
+              summaries to help readers understand the main ideas more quickly.
+              She recommended adding brief summaries and key vocabulary lists to
+              improve user comprehension.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+             Amira – Video Material Selection and Preparation
+            </div>
+            <div class="accordion-content">
+              Amira was responsible for searching for and selecting already available video materials, 
+              such as educational videos and learning-related clips related to Smart City topics. 
+              She carefully selected videos with clear pronunciation and appropriate duration, and prepared short transcripts for some of them to improve users’ comprehension. 
+              Her contribution helped enhance users’ English comprehension skills and exposed them to authentic English use in real-life contexts. 
+              She noted that the combination of text and video made the project more engaging. However, she also identified the lack of information regarding difficulty levels and video duration as a weakness. 
+              Amira suggested that future improvements should include difficulty level indicators to help learners choose materials that match theira bilities.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              Agnita – Planning, Design, and Quiz Development
+            </div>
+            <div class="accordion-content">
+              As the main planner and designer, Agnita was responsible for
+              creating the overall structure and layout of the CityPedia
+              website. She designed the interface for the Home, Smart City
+              Bogor, Profile, and Quiz pages, ensuring the navigation was
+              user-friendly and visually appealing. In addition, she developed
+              an interactive quiz feature to assess users’ understanding of the
+              Smart City concept. Her contribution was essential in supporting
+              reading and listening activities, as the design made the materials
+              more accessible and engaging. According to her evaluation, the
+              project’s strength lies in its clean and informative layout, while
+              its weakness is the lack of mobile responsiveness. She suggested
+              improving the quiz feedback system and optimizing the design for
+              mobile users in future updates.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              Rafli – Front-End Coding and Content Integration
+            </div>
+            <div class="accordion-content">
+              Rafli played a key role in the technical development of the Mini
+              Library, focusing on the front-end programming. He implemented the
+              design created by Agnita using HTML, CSS, and JavaScript, and
+              integrated all the content provided by Asri and Amira. Rafli also
+              ensured that features like the quiz, audio buttons, and navigation
+              menus functioned properly. His contribution made the website
+              interactive and user-friendly, enabling users to read and listen
+              to materials smoothly. He evaluated that the project’s main
+              strength was its functional and attractive interface, while the
+              main weakness was slow page loading speed. He suggested improving
+              code efficiency and adding accessibility features such as
+              alternative text for visually impaired users.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              Heryanti – Media Integration and System Testing
+            </div>
+            <div class="accordion-content">
+              Heryanti was responsible for managing media integration, file
+              storage, and system testing. She ensured that all files—texts,
+              images, and audio—were properly connected and accessible
+              throughout the website. She also tested the system to identify
+              bugs and compatibility issues across devices. Her contribution
+              ensured that users could access reading and listening materials
+              without technical interruptions. She identified system stability
+              as a major strength, while the lack of detailed documentation for
+              maintenance was a limitation. Heryanti suggested adding a user
+              guide and backup system to make future updates easier and safer.
+            </div>
           </div>
         </div>
       </div>
     </main>
 
+    <!-- SIX PILLARS SECTION -->
+    <section class="service" id="service">
+      <div class="container">
+        <h2 class="h2 section-title">Argumentative smart surveilance in Bogor city</h2>
+
+        <div
+          class="video-wrapper"
+          style="text-align: center; margin-bottom: 40px"
+        >
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ablOJlRY88k?si=0lcfnLO9_4NVVTSn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+<section class="service" id="service">
+  <div class="container">
+    <h2 class="h2 section-title">Argumentative Text Description</h2>
+
+    <!-- ====== KETERANGAN TOPIK & JUDUL ====== -->
+    <p
+      style="
+        margin-top: 10px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-align: left;
+      "
+    >
+      <strong>Topik :</strong> Smart Surveillance in Bogor City
+      <br />
+      <strong>Judul :</strong> Will the implementation of CCTV and facial recognition in Bogor City improve security, or will it threaten residents' privacy?
+    </p>
+
+<!-- ====== KETERANGAN PARAGRAF 1 ====== -->
+<p
+  style="
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+  "
+>
+  introduction
+</p>
+
+<!-- ====== PARAGRAF 1 - BAGIAN 1 ====== -->
+<p
+  style="
+    margin-top: 10px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  In recent years, the smart city concept has developed rapidly in Indonesia, including in Bogor. One crucial element in smart city development is the use of smart surveillance systems, including the installation of intelligent CCTV, data integration with command centers, and the potential use of facial recognition technology. This technology is believed to improve city security by providing real-time monitoring capabilities. However, concerns have arisen that digital surveillance systems could threaten citizens' privacy, particularly when data management is not transparent.
+</p>
+
+<!-- ====== PARAGRAF 1 - BAGIAN 2 ====== -->
+<p
+  style="
+    margin-top: 15px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  Therefore, this essay argues that although CCTV and facial recognition can improve security in Bogor City, their implementation must still be limited by strict regulations to prevent privacy violations and data misuse.
+</p>
+
+<!-- ====== KETERANGAN PARAGRAF 2 ====== -->
+<p
+  style="
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+  "
+>
+  Argument 1: CCTV can improve security and quick response
+</p>
+
+<!-- ====== PARAGRAF 2 - BAGIAN 1 ====== -->
+<p
+  style="
+    margin-top: 10px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  One of the primary reasons for using CCTV in public spaces is to enhance security. The Bogor City Government has installed dozens of cameras at various strategic locations, such as intersections, City Hall, public spaces, and city parks. All of these cameras are integrated into the Bogor Green Room, a command center that monitors city conditions in real time.
+</p>
+
+<!-- ====== PARAGRAF 2 - BAGIAN 2 ====== -->
+<p
+  style="
+    margin-top: 15px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  This type of surveillance has been proven to assist authorities in handling crime, accidents, and emergencies. For example, the Bogor Police Department once stated that city CCTV cameras helped speed up the identification of criminals in densely populated areas. From a cause and effect perspective, the more areas monitored, the less likely a crime is to occur because perpetrators feel they are being watched.
+</p>
+
+<!-- ====== PARAGRAF 2 - BAGIAN 3 ====== -->
+<p
+  style="
+    margin-top: 15px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  Furthermore, CCTV plays a crucial role in traffic management. Camera footage helps traffic control officers regulate traffic lights and detect congestion. Thus, CCTV truly serves as a crime prevention tool while supporting urban mobility control.
+</p>
+
+<!-- ====== KETERANGAN PARAGRAF 1 ====== -->
+<p
+  style="
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+  "
+>
+  Argument 2: Facial recognition has the potential to increase the effectiveness of law enforcement.
+</p>
+
+<!-- ====== PARAGRAF 1 - BAGIAN 1 ====== -->
+<p
+  style="
+    margin-top: 10px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  Cities around the world, such as Singapore and Seoul, have used facial recognition technology in public surveillance to speed up the search for fugitives or locate missing persons. If this technology were implemented in Bogor, the effectiveness of law enforcement could be increased.
+</p>
+
+<!-- ====== PARAGRAF 1 - BAGIAN 2 ====== -->
+<p
+  style="
+    margin-top: 15px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  From a utility perspective, facial recognition can identify individuals in seconds—much faster than manual methods. This can assist police in handling serious cases such as kidnapping, terrorism, or street violence.
+</p>
+
+<!-- ====== PARAGRAF 1 - BAGIAN 3 ====== -->
+<p
+  style="
+    margin-top: 15px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  Even in the context of disasters or large crowds, this technology can support more accurate victim searches. The causal chain is clear: the faster identification is made, the faster rescue or law enforcement action can be initiated. From an urban development perspective, the use of facial recognition could make Bogor one of the cities with a futuristic security system on par with developed cities in Asia.
+</p>
+
+<!-- ====== KETERANGAN PARAGRAF 1 ====== -->
+<p
+  style="
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+  "
+>
+  Counterargument: Privacy threats & data misuse risks
+</p>
+
+<!-- ====== PARAGRAF 1 - BAGIAN 1 ====== -->
+<p
+  style="
+    margin-top: 10px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  However, the use of CCTV and facial recognition in public spaces also carries significant risks that should not be ignored. First, the lack of strong personal data protection regulations at the city level can lead to data misuse. Recordings of citizens' faces can be misused by certain parties, whether for political or commercial gain, or for targeting individuals without consent.
+</p>
+
+<!-- ====== PARAGRAF 1 - BAGIAN 2 ====== -->
+<p
+  style="
+    margin-top: 15px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  One clear example of data security issues is a 2024 report that stated that approximately 60 CCTV cameras in Bogor were damaged. If even the physical devices aren't properly managed, how can you ensure the security of sensitive data like facial recognition recordings?
+</p>
+
+<!-- ====== PARAGRAF 1 - BAGIAN 3 ====== -->
+<p
+  style="
+    margin-top: 15px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  Furthermore, many citizens may be unaware that their activities are being monitored, leading to feelings of discomfort and a violation of individual freedoms. Digital rights groups frequently warn that facial recognition has the potential to be used to profile citizens or monitor their political activities. This is a compelling reason why smart surveillance should not be implemented without strict regulations and oversight.
+</p>
+
+<!-- ====== KETERANGAN PARAGRAF 2 ====== -->
+<p
+  style="
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+  "
+>
+  Rebuttal & Conclusion
+</p>
+
+<!-- ====== PARAGRAF 2 - BAGIAN 1 ====== -->
+<p
+  style="
+    margin-top: 10px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  While there are strong objections, this doesn't mean smart surveillance shouldn't be implemented. The solution isn't to stop the technology, but to create clear privacy protection regulations, for example:
+</p>
+
+<!-- ====== PARAGRAF 2 - LIST REGULASI (BULLET MUNCUL) ====== -->
+<ul
+  style="
+    margin-top: 10px;
+    margin-left: 40px;
+    line-height: 1.7;
+    font-size: 1rem;
+    list-style-type: disc;
+  "
+>
+  <li>1. a maximum data retention rule of 30 days,</li>
+  <li>2. regular security audits,</li>
+  <li>3. transparency of camera locations,</li>
+  <li>4. prohibition on the use of recordings for political or commercial purposes,</li>
+  <li>5. public consent before using facial recognition.</li>
+</ul>
+
+<!-- ====== PARAGRAF 2 - BAGIAN 2 ====== -->
+<p
+  style="
+    margin-top: 15px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  With such regulations, surveillance technology can provide benefits without sacrificing citizens' rights.
+</p>
+
+<!-- ====== PARAGRAF 2 - BAGIAN 3 (KESIMPULAN) ====== -->
+<p
+  style="
+    margin-top: 15px;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-indent: 30px;
+  "
+>
+  In conclusion, CCTV and facial recognition have the potential to improve Bogor City's security, but they must be implemented with strict regulations to avoid threatening privacy. Bogor can become a safe, smart city that respects its citizens' digital rights if it can balance innovation and ethics.
+</p>
+
+  </div>
+</section>
+
     <!-- ACCORDION SCRIPT -->
     <script>
-      const headers = document.querySelectorAll(".accordion-header");
-      headers.forEach((header) => {
+      const accordions = document.querySelectorAll(".accordion-header");
+
+      accordions.forEach((header) => {
         header.addEventListener("click", () => {
-          header.nextElementSibling.classList.toggle("open");
+          const active = document.querySelector(".accordion-header.active");
+          if (active && active !== header) {
+            active.classList.remove("active");
+            active.nextElementSibling.classList.remove("open");
+          }
+          header.classList.toggle("active");
+          const content = header.nextElementSibling;
+          content.classList.toggle("open");
         });
       });
     </script>
