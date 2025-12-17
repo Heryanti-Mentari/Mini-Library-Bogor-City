@@ -12,12 +12,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- INLINE CSS (TETAP DI SINI) -->
+    <!-- INLINE CSS -->
     <style>
       .profile-section {
         padding: 80px 0;
@@ -62,6 +59,10 @@
         color: #666;
         font-size: 0.9rem;
         line-height: 1.4;
+
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        white-space: normal;
       }
 
       .accordion-section {
@@ -185,22 +186,16 @@
 
     <!-- ACCORDION SCRIPT -->
     <script>
-      const headers = document.querySelectorAll(".accordion-header");
+      const headers = document.querySelectorAll('.accordion-header');
       headers.forEach((header) => {
-        header.addEventListener("click", () => {
-          header.nextElementSibling.classList.toggle("open");
+        header.addEventListener('click', () => {
+          header.nextElementSibling.classList.toggle('open');
         });
       });
     </script>
 
     <!-- IONICONS -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
